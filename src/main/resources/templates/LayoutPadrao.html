@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Rotas</title>
+
+    <link rel="stylesheet" type="text/css" media="screen" th:href="@{/css/bootstrap.min.css}" />
+    <link rel="stylesheet" type="text/css" media="screen" th:href="@{/css/style.css}" />
+</head>
+
+<body>
+
+    <header th:replace="Cabecalho"></header>
+
+    <section layout:fragment="conteudo">
+        Conteudo principal
+    </section>
+    
+    <script type="text/javascript" th:src="@{/js/jquery-2.1.4.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+</body>
+
+</html>

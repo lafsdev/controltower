@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorator="LayoutPadrao">
+
+<head>
+    <title>Pesquisa de Rotas</title>
+</head>
+<section layout:fragment="conteudo">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="clearfix">
+                <h1 class="panel-title lafs-titulo-panel">
+                    Pesquisa de Rotas
+                </h1>
+                <a class="btn btn-link lafs-link-panel" th:href="@{/rotas/novo}">
+                    Nova Rota
+                </a>
+            </div>
+        </div>
+        <div class="panel-body">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th class="text-center col-md-1">#</th>
+                        <th class="text-center col-md-1">Placa</th>
+                        <th class="text-center col-md-1">Frota</th>
+                        <th>Motorista</th>
+                        <th class="text-center col-md-1">Status</th>
+                        <th class="text-center col-md-1">Data</th>
+                        <th>Origem</th>
+                        <th>Destino</th>
+                        <th>Observação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="9">Nenhuma rota encontrada!</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorator="LayoutPadrao">
+
+<head>
+    <title>Cadastro de Rotas</title>
+</head>
+<section layout:fragment="conteudo">
+    <form class="form-horizontal" method="POST" action="/rotas">
+        <div class="alert alert-success" th:if="${!#strings.isEmpty(mensagem)}">
+            <span th:text="${mensagem}">Rota salva com sucesso!</span>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="clearfix">
+                    <h1 class="panel-title lafs-titulo-panel">
+                        Cadastro de Rotas
+                    </h1>
+                    <a class="btn btn-link lafs-link-panel" th:href="@{/rotas}">
+                        Voltar para pesquisa
+                    </a>
+                </div>
+            </div>
+
+            <div class="panel-body">
+                <div class="form-group">
+                    <label for="placa" class="col-sm-2 control-label">Placa</label>
+                    <div class="col-sm-2">
+                        <input type="text" class="form-control" id="placa" name="placa" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="frota" class="col-sm-2 control-label">Frota</label>
+                    <div class="col-sm-2">
+                        <input type="text" class="form-control" id="frota" name="frota" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="motorista" class="col-sm-2 control-label">Motorista</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="motorista" name="motorista" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="status" class="col-sm-2 control-label">Status</label>
+                    <div class="col-sm-2">
+                        <select class="form-control" name="status">
+                            <option th:each="status : ${todosStatus}" th:value="${status}"
+                                th:text="${status.descricao}"></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="data" class="col-sm-2 control-label">Data</label>
+                    <div class="col-sm-2">
+                        <input type="text" class="form-control" id="data" name="data" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="origem" class="col-sm-2 control-label">Origem</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="origem" name="origem" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="destino" class="col-sm-2 control-label">Destino</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="destino" name="destino" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="observacao" class="col-sm-2 control-label">Observação</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="observacao" name="observacao" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>
+
+</html>

@@ -1,0 +1,28 @@
+.navbar-brand{
+    padding-top: 12px;
+}
+
+.panel-default{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.logo{
+    border-radius: 12px;
+    padding-bottom: 20%;
+}
+
+.alert{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.lafs-link-panel{
+    float: right;    
+    padding: 0px;
+}
+
+.lafs-titulo-panel{
+    float: left;
+    padding-top: 2px;
+}
