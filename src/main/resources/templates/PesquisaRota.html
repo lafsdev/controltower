@@ -30,11 +30,25 @@
                         <th>Origem</th>
                         <th>Destino</th>
                         <th>Observação</th>
+                        <th class="col-md-1"></th>
                     </tr>
                 </thead>
                 <tbody>
+                    <tr th:each="rota :${rotas}">
+                        <td class="text-center" th:text="${rota.id}"></td>
+                        <td class="text-center" th:text="${rota.placa}"></td>
+                        <td class="text-center" th:text="${rota.frota}"></td>
+                        <td th:text="${rota.motorista}"></td>
+                        <td class="text-center" >
+                            <span class="label" th:text="${rota.status.descricao}" th:classappend="${#strings.toString(rota.status) == 'EM_VIAGEM' ? 'label-success' : 'label-danger'}"></span>
+                        </td>
+                        <td class="text-center" th:text="${{rota.data}}"></td>
+                        <td th:text="${rota.origem}"></td>
+                        <td th:text="${rota.destino}"></td>
+                        <td th:text="${rota.observacao}"></td>
+                    </tr>
                     <tr>
-                        <td colspan="9">Nenhuma rota encontrada!</td>
+                        <td th:if="${#lists.isEmpty(rotas)}" colspan="9">Nenhuma rota encontrada!</td>
                     </tr>
                 </tbody>
             </table>

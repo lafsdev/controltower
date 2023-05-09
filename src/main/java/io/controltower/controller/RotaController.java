@@ -38,8 +38,11 @@ public class RotaController {
     }
 
     @RequestMapping
-    public String pesquisar(){
-        return "PesquisaRota";
+    public ModelAndView pesquisar(){
+        List<Rota> todasRotas = rotasRepository.findAll();
+        ModelAndView mv = new ModelAndView("PesquisaRota");
+        mv.addObject("rotas", todasRotas);
+        return mv;
     }
 
     @ModelAttribute("todosStatus")
