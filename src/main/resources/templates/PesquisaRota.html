@@ -6,6 +6,7 @@
     <title>Pesquisa de Rotas</title>
 </head>
 <section layout:fragment="conteudo">
+    <div th:replace="MensagemGeral"></div>
     <div class="panel panel-default">
         <div class="panel-heading">
             <div class="clearfix">
@@ -50,6 +51,10 @@
                             <a class="btn btn-link btn-xs" th:href="@{/rotas/{id}(id=${rota.id})}">
                                 <span class="glyphicon glyphicon-pencil"></span>
                             </a>
+                            <a class="btn btn-link btn-xs" data-toggle="modal" data-target="#confirmacaoExclusaoModal"
+                            th:attr="data-id=${rota.id}, data-origem=${rota.origem}, data-destino=${rota.destino}">
+                                <span class="glyphicon glyphicon-remove"></span>
+                            </a>
                         </td>
                     </tr>
                     <tr>
@@ -58,6 +63,9 @@
                 </tbody>
             </table>
         </div>
+
+        <div th:replace="DialogoConfirmacaoExclusao"></div>
+
     </div>
 </section>
 

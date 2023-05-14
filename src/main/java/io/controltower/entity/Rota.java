@@ -1,6 +1,5 @@
 package io.controltower.entity;
 
-import com.sun.istack.NotNull;
 import io.controltower.entity.enums.Status;
 import org.springframework.format.annotation.DateTimeFormat;
 

@@ -66,4 +66,12 @@ public class RotaController {
         mv.addObject(rota);
         return mv;
     }
+
+    @RequestMapping(value="/delete/{id}", method = RequestMethod.DELETE)
+    public String excluir(@PathVariable Long id, RedirectAttributes attributes) {
+        rotasRepository.deleteById(id);
+
+        attributes.addFlashAttribute("mensagem", "Rota excluída com sucesso!");
+        return "redirect:/rotas";
+    }
 }
