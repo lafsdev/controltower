@@ -1,9 +1,11 @@
 package io.controltower.entity;
 
+import com.sun.istack.NotNull;
 import io.controltower.entity.enums.Status;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.Date;
 import java.util.Objects;
 
@@ -13,15 +15,20 @@ public class Rota {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotBlank(message = "O campo 'Placa' é obrigatório.")
     private String placa;
+    @NotBlank(message = "O campo 'Frota' é obrigatório.")
     private String frota;
+    @NotBlank(message = "O campo 'Motorista' é obrigatório.")
     private String motorista;
     @Enumerated(EnumType.STRING)
     private Status status;
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date data;
+    @NotBlank(message = "O campo 'Origem' é obrigatório.")
     private String origem;
+    @NotBlank(message = "O campo 'Destino' é obrigatório.")
     private String destino;
     private String observacao;
 

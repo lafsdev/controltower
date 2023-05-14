@@ -5,10 +5,13 @@ import io.controltower.entity.enums.Status;
 import io.controltower.repository.RotasRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.Errors;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
@@ -26,15 +29,18 @@ public class RotaController {
 
         ModelAndView mv = new ModelAndView("CadastroRota");
         mv.addObject("todosStatus", Status.values());
+        mv.addObject(new Rota());
         return mv;
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ModelAndView salvar(Rota rota){
+    public String salvar(@Validated Rota rota, Errors errors, RedirectAttributes redirectAttributes){
+        if(errors.hasErrors()){
+            return "CadastroRota";
+        }
         rotasRepository.save(rota);
-        ModelAndView mv = new ModelAndView("CadastroRota");
-        mv.addObject("mensagem","Rota salva com sucesso!");
-        return mv;
+        redirectAttributes.addFlashAttribute("mensagem","Rota salva com sucesso!");
+        return  "redirect:/rotas/novo";
     }
 
     @RequestMapping
