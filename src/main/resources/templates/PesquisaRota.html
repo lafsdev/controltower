@@ -46,6 +46,11 @@
                         <td th:text="${rota.origem}"></td>
                         <td th:text="${rota.destino}"></td>
                         <td th:text="${rota.observacao}"></td>
+                        <td class="text-center">
+                            <a class="btn btn-link btn-xs" th:href="@{/rotas/{id}(id=${rota.id})}">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                            </a>
+                        </td>
                     </tr>
                     <tr>
                         <td th:if="${#lists.isEmpty(rotas)}" colspan="9">Nenhuma rota encontrada!</td>
