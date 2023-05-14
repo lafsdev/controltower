@@ -13,3 +13,7 @@ $('#confirmacaoExclusaoModal').on('show.bs.modal', function(event){
     modal.find('.modal-body span').html('Tem certeza que deseja excluir a Rota <strong>' + descricaoRota + '</strong>?')
 
 })
+
+$(function(){
+    $('[rel="tooltip"]').tooltip();
+});

@@ -48,11 +48,11 @@
                         <td th:text="${rota.destino}"></td>
                         <td th:text="${rota.observacao}"></td>
                         <td class="text-center">
-                            <a class="btn btn-link btn-xs" th:href="@{/rotas/{id}(id=${rota.id})}">
+                            <a class="btn btn-link btn-xs" th:href="@{/rotas/{id}(id=${rota.id})}" title="editar" rel="tooltip" data-placement="top">
                                 <span class="glyphicon glyphicon-pencil"></span>
                             </a>
                             <a class="btn btn-link btn-xs" data-toggle="modal" data-target="#confirmacaoExclusaoModal"
-                            th:attr="data-id=${rota.id}, data-origem=${rota.origem}, data-destino=${rota.destino}">
+                            th:attr="data-id=${rota.id}, data-origem=${rota.origem}, data-destino=${rota.destino}" title="excluir" rel="tooltip" data-placement="top">
                                 <span class="glyphicon glyphicon-remove"></span>
                             </a>
                         </td>

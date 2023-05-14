@@ -4,6 +4,7 @@ import io.controltower.entity.Rota;
 import io.controltower.entity.enums.Status;
 import io.controltower.repository.RotasRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
@@ -41,9 +42,15 @@ public class RotaController {
         if(errors.hasErrors()){
             return CADASTRO_VIEW;
         }
-        rotasRepository.save(rota);
-        redirectAttributes.addFlashAttribute("mensagem","Rota salva com sucesso!");
-        return  "redirect:/rotas/novo";
+
+        try {
+            rotasRepository.save(rota);
+            redirectAttributes.addFlashAttribute("mensagem","Rota salva com sucesso!");
+            return  "redirect:/rotas/novo";
+        }catch(DataIntegrityViolationException e) {
+            errors.rejectValue("data",null,"Formato de data inválido");
+            return CADASTRO_VIEW;
+        }
     }
 
     @RequestMapping
