@@ -5,6 +5,7 @@ import io.controltower.entity.enums.Status;
 import io.controltower.repository.RotasRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
@@ -55,7 +56,7 @@ public class RotaController {
 
     @RequestMapping
     public ModelAndView pesquisar(){
-        List<Rota> todasRotas = rotasRepository.findAll();
+        List<Rota> todasRotas = rotasRepository.findAll(Sort.by(Sort.Direction.DESC, "data"));
         ModelAndView mv = new ModelAndView("PesquisaRota");
         mv.addObject("rotas", todasRotas);
         return mv;

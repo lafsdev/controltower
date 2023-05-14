@@ -19,7 +19,7 @@
             </div>
         </div>
         <div class="panel-body">
-            <table class="table table-bordered table-striped">
+            <table id="lafs" class="table table-striped">
                 <thead>
                     <tr>
                         <th class="text-center col-md-1">#</th>
@@ -31,7 +31,7 @@
                         <th>Origem</th>
                         <th>Destino</th>
                         <th>Observação</th>
-                        <th class="col-md-1"></th>
+                        <th class="col-md-1">Opções</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -48,20 +48,18 @@
                         <td th:text="${rota.destino}"></td>
                         <td th:text="${rota.observacao}"></td>
                         <td class="text-center">
-                            <a class="btn btn-link btn-xs" th:href="@{/rotas/{id}(id=${rota.id})}" title="editar" rel="tooltip" data-placement="top">
+                            <a class="btn btn-link btn-xs" th:href="@{/rotas/{id}(id=${rota.id})}" title="editar" rel="tooltip" data-placement="left">
                                 <span class="glyphicon glyphicon-pencil"></span>
                             </a>
                             <a class="btn btn-link btn-xs" data-toggle="modal" data-target="#confirmacaoExclusaoModal"
-                            th:attr="data-id=${rota.id}, data-origem=${rota.origem}, data-destino=${rota.destino}" title="excluir" rel="tooltip" data-placement="top">
+                            th:attr="data-id=${rota.id}, data-origem=${rota.origem}, data-destino=${rota.destino}" title="excluir" rel="tooltip" data-placement="left">
                                 <span class="glyphicon glyphicon-remove"></span>
                             </a>
                         </td>
                     </tr>
-                    <tr>
-                        <td th:if="${#lists.isEmpty(rotas)}" colspan="9">Nenhuma rota encontrada!</td>
-                    </tr>
                 </tbody>
             </table>
+
         </div>
 
         <div th:replace="DialogoConfirmacaoExclusao"></div>
